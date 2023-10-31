@@ -11,7 +11,6 @@ class TipCalculatorScreen extends StatefulWidget {
 class _TipCalculatorScreenState extends State<TipCalculatorScreen> {
   var tip = 15.00;
   var total = 0.00;
-  var sliderValue = 15.0;
   var color = Colors.orange;
   var billAmount = "0.0";
   var reaction = "";
@@ -32,14 +31,14 @@ class _TipCalculatorScreenState extends State<TipCalculatorScreen> {
             child: TextField(
                 keyboardType: TextInputType.number,
                 onChanged: (value) => setState(() {
-                  billAmount = value;
-                  calculateTip(value as double);
+                  billAmount =value;
+                  calculateTip(tip);
                 })),
           ),
           const Text("Select tip percentage"),
           Slider(
-              value: sliderValue,
-              label: "${sliderValue.round()}%",
+              value: tip,
+              label: "${tip.round()}%",
               divisions: 10,
               min: 0.0,
               max: 30.0,
@@ -47,11 +46,10 @@ class _TipCalculatorScreenState extends State<TipCalculatorScreen> {
               inactiveColor: Colors.grey,
               secondaryActiveColor: Colors.black,
               onChanged: (value) => setState(() {
-                sliderValue = value;
-                color = setColor(sliderValue);
-                reaction = setEmoji(sliderValue);
                 tip = value;
-                calculateTip(sliderValue);
+                color = setColor(tip);
+                reaction = setEmoji(tip);
+                calculateTip(tip);
               })),
           Text("Tip PKR: ${tip.toStringAsFixed(2)}%"),
          const Padding(padding: EdgeInsets.only(bottom: 8.0)),
