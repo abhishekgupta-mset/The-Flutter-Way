@@ -51,9 +51,9 @@ class _TipCalculatorScreenState extends State<TipCalculatorScreen> {
                 reaction = setEmoji(tip);
                 calculateTip(tip);
               })),
-          Text("Tip PKR: ${tip.toStringAsFixed(2)}%"),
+          Text("Tip PKR: ${tipAmount(tip)}"),
          const Padding(padding: EdgeInsets.only(bottom: 8.0)),
-          Text("Total PKR: ${total.toStringAsFixed(2)}%"),
+          Text("Total PKR: ${total.toStringAsFixed(2)}"),
           const Padding(padding: EdgeInsets.only(bottom: 8.0)),
           Text(reaction, style: const TextStyle(fontSize: 50.0))
         ],
@@ -67,6 +67,14 @@ class _TipCalculatorScreenState extends State<TipCalculatorScreen> {
       tip = tipAmount;
       total = bill + (bill*tip)/100;
     }
+  }
+
+  String tipAmount(double tip) {
+    var bill = double.parse(billAmount);
+    if (bill > 0) {
+     return "${(bill*tip)/100}";
+    }
+    return "0.0";
   }
 
   MaterialColor setColor(double sliderValue) {
