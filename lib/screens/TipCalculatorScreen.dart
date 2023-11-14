@@ -17,7 +17,9 @@ class _TipCalculatorScreenState extends State<TipCalculatorScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return _buildTipCalculateScreen(context);
+    return Scaffold(
+      appBar: AppBar(backgroundColor: color),
+        body: _buildTipCalculateScreen(context));
   }
 
   Widget _buildTipCalculateScreen(BuildContext context) {

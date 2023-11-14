@@ -16,8 +16,6 @@ class MyApp extends StatelessWidget {
   MaterialApp buildMaterialApp(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(primarySwatch: Colors.orange),
-        home: Scaffold(
-            appBar: AppBar(title: const Text("Tip Calculator")),
-            body: const TipCalculatorScreen()));
+        home: const TipCalculatorScreen());
   }
 }
