@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tip_calculator/screens/GroceryRoute.dart';
 import 'package:tip_calculator/screens/TipCalculatorScreen.dart';
 
 void main() {
@@ -16,6 +17,6 @@ class MyApp extends StatelessWidget {
   MaterialApp buildMaterialApp(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(primarySwatch: Colors.orange),
-        home: const TipCalculatorScreen());
+        home: const GroceryRoute());
   }
 }
